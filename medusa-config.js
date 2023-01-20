@@ -54,10 +54,25 @@ const plugins = [
   // },
 ];
 
+// module.exports = {
+//   projectConfig: {
+//     redis_url: "redis://default:Osq6iYwDLFbdvet88kL0@containers-us-west-120.railway.app:6674",
+//     database_type: "postgres",
+//     database_url: "postgresql://postgres:WLKcMOgqx0ie2aP17WbL@containers-us-west-154.railway.app:5638/railway",
+//   },
+// }
+
+// module.exports = {
+//   projectConfig: {
+//     database_type: "postgres",
+//     database_url: "postgresql://postgres:123@172.17.0.2/postgres",
+//   },
+// }
+
 module.exports = {
   projectConfig: {
-    redis_url: "redis://default:Osq6iYwDLFbdvet88kL0@containers-us-west-120.railway.app:6674",
-    database_type: "postgres",
-    database_url: "postgresql://postgres:WLKcMOgqx0ie2aP17WbL@containers-us-west-154.railway.app:5638/railway",
+    // ...other configurations
+    database_type: "sqlite",
+    database_database: "./medusa-db.sql",
   },
 }
