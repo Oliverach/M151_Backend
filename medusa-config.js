@@ -57,6 +57,6 @@ const plugins = [
 module.exports = {
   projectConfig: {
     database_type: "postgres",
-    database_url: DATABASE_URL,
+    database_url: "postgresql://postgres:WLKcMOgqx0ie2aP17WbL@containers-us-west-154.railway.app:5638/railway",
   },
 }
