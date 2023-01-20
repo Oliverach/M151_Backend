@@ -41,38 +41,51 @@ const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
 
 // This is the place to include plugins. See API documentation for a thorough guide on plugins.
 const plugins = [
-  `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
+  'medusa-fulfillment-manual',
+  
+ /* {
+    resolve:'medusa-plugin-filestorage-local',
+    options: {
+      // The baseurl for your medusajs server
+    serverBaseUrl: "http://localhost:9000",
+    // when enabled saves the file as a base64 encoded string inside the database (deleting that row is not yet supported)
+    saveInDatabase: false, // recommended: false
+    // the folder where your files are stored on the server
+    fileLocation: "uploads/",
+         },
+    
+},*/
+{
+  resolve: `medusa-file-s3`,
+  options: {
+      s3_url: process.env.S3_URL,
+      bucket: process.env.S3_BUCKET,
+        region: process.env.S3_REGION,
+        access_key_id: process.env.S3_ACCESS_KEY_ID,
+        secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
+  },
+},
   // Uncomment to add Stripe support.
   // You can create a Stripe account via: https://stripe.com
-  // {
-  //   resolve: `medusa-payment-stripe`,
-  //   options: {
-  //     api_key: STRIPE_API_KEY,
-  //     webhook_secret: STRIPE_WEBHOOK_SECRET,
-  //   },
-  // },
+  /*
+   {
+    resolve: `medusa-payment-stripe`,
+     options: {
+      api_key: STRIPE_API_KEY,
+       webhook_secret: STRIPE_WEBHOOK_SECRET,
+     },
+   },*/
 ];
-
-// module.exports = {
-//   projectConfig: {
-//     redis_url: "redis://default:Osq6iYwDLFbdvet88kL0@containers-us-west-120.railway.app:6674",
-//     database_type: "postgres",
-//     database_url: "postgresql://postgres:WLKcMOgqx0ie2aP17WbL@containers-us-west-154.railway.app:5638/railway",
-//   },
-// }
-
-// module.exports = {
-//   projectConfig: {
-//     database_type: "postgres",
-//     database_url: "postgresql://postgres:123@172.17.0.2/postgres",
-//   },
-// }
 
 module.exports = {
   projectConfig: {
-    // ...other configurations
-    database_type: "sqlite",
-    database_database: "./medusa-db.sql",
+    // redis_url: REDIS_URL,
+    // For more production-like environment install PostgresQL
+     database_url: "postgres://postgres:123@localhost:5432/postgres",
+     database_type: "postgres",
+    store_cors: STORE_CORS,
+    admin_cors: ADMIN_CORS,
   },
-}
+  plugins,
+};
