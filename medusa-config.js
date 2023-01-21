@@ -78,11 +78,21 @@ const plugins = [
    },*/
 ];
 
+// module.exports = {
+//   projectConfig: {
+//     // redis_url: REDIS_URL,
+//      database_url: "postgres://postgres:123@localhost:5432/postgres",
+//      database_type: "postgres",
+//     store_cors: STORE_CORS,
+//     admin_cors: ADMIN_CORS,
+//   },
+//   plugins,
+// };
+
 module.exports = {
   projectConfig: {
-    // redis_url: REDIS_URL,
-    // For more production-like environment install PostgresQL
-     database_url: "postgres://postgres:123@localhost:5432/postgres",
+     redis_url: "redis://default:Osq6iYwDLFbdvet88kL0@containers-us-west-120.railway.app:6674",
+     database_url: "postgresql://postgres:WLKcMOgqx0ie2aP17WbL@containers-us-west-154.railway.app:5638/railway",
      database_type: "postgres",
     store_cors: STORE_CORS,
     admin_cors: ADMIN_CORS,
