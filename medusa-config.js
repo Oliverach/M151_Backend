@@ -94,3 +94,11 @@ module.exports = {
   },
   plugins,
 };
+
+// module.exports = {
+//   projectConfig: {
+//      database_url: "postgresql://postgres:123@localhost/postgres",
+//      database_type: "postgres",
+//   },
+//   plugins,
+// };
