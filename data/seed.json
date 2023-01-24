@@ -6,6 +6,14 @@
       {
         "email": "admin@medusa-test.com",
         "password": "supersecret"
+      },
+      {
+        "email": "test@test.com",
+        "password": "test"
+      },
+      {
+        "email": "test2@test.com",
+        "password": "test"
       }
     ],
     "regions": [
